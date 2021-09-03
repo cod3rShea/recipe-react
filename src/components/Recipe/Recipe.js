@@ -16,6 +16,7 @@ const Recipe = () => {
 		setRecipes(data.hits);
 	};
 
+	// renders first on page because foodQuery will be empty
 	if (foodQuery == "") {
 		return (
 			<div>
@@ -27,7 +28,7 @@ const Recipe = () => {
 			</div>
 		);
 	}
-
+	//Renders on submit and passes recipes into results component
 	return (
 		<div>
 			<form>
