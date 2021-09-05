@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Results from "../Results/Results";
 
 const Recipe = () => {
-	const [foodQuery, setFoodQuery] = useState("");
+	const [foodQuery, setFoodQuery] = useState("pizza");
 	const [recipes, setRecipes] = useState([]);
 
 	useEffect(() => {
@@ -17,7 +17,7 @@ const Recipe = () => {
 	};
 
 	// renders first on page because foodQuery will be empty
-	if (foodQuery == "") {
+	if (foodQuery === "") {
 		return (
 			<div>
 				<h1>Search For A Recipe</h1>

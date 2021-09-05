@@ -1,0 +1,11 @@
+.recipes-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.recipe-container {
+	display: flex;
+	flex-direction: column;
+	width: 29.33%;
+	padding: 2%;
+}
