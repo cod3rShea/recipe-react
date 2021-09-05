@@ -2,7 +2,7 @@ import React from "react";
 
 const Results = (data) => {
 	const recipeData = data.data;
-	console.log(recipeData);
+	console.log("recipe", recipeData);
 	return (
 		<div className="recipes-container">
 			{recipeData.map((recipe) => (
