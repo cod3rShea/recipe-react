@@ -2,22 +2,20 @@ import React, { useEffect, useState } from "react";
 import Results from "../Results/Results";
 
 const Recipe = () => {
-	const [recipes, setRecipes] = useState();
+	const [recipes, setRecipes] = useState([]);
 	const [recipeSearch, setRecipeSearch] = useState("");
 	const [foodQuery, setFoodQuery] = useState("");
 
 	useEffect(() => {
-		console.log("tets 2");
+		const getRecipe = async () => {
+			console.log("test");
+			const apiURL = `${process.env.REACT_APP_Recipe_Acount_URL}&q=${foodQuery}&app_id=${process.env.REACT_APP_Recipe_Acount_KEY}&app_key=${process.env.REACT_APP_Recipe_API_KEY}`;
+			const response = await fetch(apiURL);
+			const data = await response.json();
+			setRecipes(data.hits);
+		};
 		getRecipe();
 	}, [foodQuery]);
-
-	const getRecipe = async () => {
-		console.log("test");
-		const apiURL = `${process.env.REACT_APP_Recipe_Acount_URL}&q=${foodQuery}&app_id=${process.env.REACT_APP_Recipe_Acount_KEY}&app_key=${process.env.REACT_APP_Recipe_API_KEY}`;
-		const response = await fetch(apiURL);
-		const data = await response.json();
-		setRecipes(data.hits);
-	};
 
 	const updateRecipeSearch = (e) => {
 		setRecipeSearch(e.target.value);
